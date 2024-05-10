@@ -1,0 +1,8 @@
+export enum AnimTypes {
+  IDLE_DOWN = 'IDLE_DOWN',
+  WALK_DOWN = 'WALK_DOWN',
+  IDLE_SIDE = 'IDLE_SIDE',
+  WALK_SIDE = 'WALK_SIDE',
+  IDLE_UP = 'IDLE_UP',
+  WALK_UP = 'WALK_UP',
+}
