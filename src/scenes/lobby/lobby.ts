@@ -72,7 +72,7 @@ export const lobby = async () => {
   const mouseAngle = player.pos.angle(worldMousePos);
   moveToLocation(player, mouseAngle, worldMousePos);
 });
-  k.onMouseRelease((m) => stopAnim(player));
+  k.onMouseRelease((_m) => stopAnim(player));
 
   //make cat wander around
   k.loop(5, () => {
