@@ -1,7 +1,7 @@
 import { defineConfig } from "vite";
 
 export default defineConfig({
-  base: "./",
+  base: "/portfolio",
   build: {
     // bug w kaboom w esbuild
     minify: 'terser',
