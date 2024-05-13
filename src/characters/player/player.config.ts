@@ -20,9 +20,9 @@ export const playerConfig = () => {
   return [
     k.sprite('harvey', {anim: AnimTypes.IDLE_DOWN}),
     k.area({
-      shape: new k.Rect(k.vec2(0,3), 16, 32)
+      shape: new k.Rect(k.vec2(), 14, 14)
     }),
-    k.anchor("center"),
+    k.anchor("bot"),
     k.pos(),
     // makes tangible
     k.body(),

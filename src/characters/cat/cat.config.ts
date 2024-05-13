@@ -11,14 +11,14 @@ export const CatAnims = {
   [AnimTypes.WALK_UP]: { from: 8, to: 11, loop: true, speed: 8 },
 }
 
-export const catConfig = () => {
-  k.loadSprite('catSprite', './cat.png', {
+export const catConfig = (name: string, sliceY = 9) => {
+  k.loadSprite(`${name}Sprite`, `./${name}.png`, {
     sliceX: 4,
-    sliceY: 9,
+    sliceY,
     anims: CatAnims,
   });
   return [
-    k.sprite('catSprite', {anim: AnimTypes.IDLE_DOWN}),
+    k.sprite(`${name}Sprite`, {anim: AnimTypes.IDLE_DOWN}),
     k.area({
       shape: new k.Rect(k.vec2(0,3), 10, 10)
     }),
@@ -31,6 +31,6 @@ export const catConfig = () => {
       direction: "down",
       isInDialogue: false,
     },
-    "cat",
+    name,
   ]
 }
