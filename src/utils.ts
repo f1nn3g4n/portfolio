@@ -1,5 +1,18 @@
 import { GameObj, KaboomCtx } from "kaboom";
 import { scaleFactor } from "./constants/scaleFactor";
+import { DIALOGUE } from "./scenes/lobby/lobby.constants";
+
+export const playerDialogue = (objName: string, player: GameObj) => {
+  player.isInDialogue = true;
+  try {
+    const dialogue = DIALOGUE[objName];
+    if (!dialogue) throw new Error('Missing dialogue!');
+    displayDialogue(dialogue, () => player.isInDialogue = false)
+  } catch (e) {
+    console.error(`Dialogue failed to display for ${objName}:`, e);
+    player.isInDialogue = false;
+  }
+}
 
 export const displayDialogue = (text: string, onDisplayEnd: () => {}) => {
   const dialogueUI = document.getElementById("textbox-container");

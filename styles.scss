@@ -19,7 +19,7 @@ body {
   display: none;
 }
 
-#textbox {
+#textbox, #note {
   position: absolute;
   left: 10%;
   right: 10%;
@@ -50,18 +50,20 @@ body {
   border-radius: 3px;
   padding: 1rem;
   font-size: inherit;
+  user-select: none;
 }
 
 .btn-container {
   align-self: flex-end;
   margin-top: 1rem;
+  user-select: none;
 }
 
 #note {
-  position: absolute;
   left: 5%;
   top: 1vh;
   display: none;
   flex-direction: column;
-  color: white;
+  width: auto;
+  height: auto;
 }

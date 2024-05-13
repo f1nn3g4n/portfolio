@@ -1,4 +1,10 @@
-export const DIALOGUE = {
-  "Hello": "Hello there, young padawan",
-  "cat": "This is my cat Ted, he's a bit of a weirdo",
+export const DIALOGUE: Record<string, string> = {
+  "art": "I'm a big fan of art, always have been and always will be! Especially comic book and video game artstyles. Obviously one of my favourites is Stardew Valley, since I stole sprites from it.",
+  "ted": "This is my cat Ted, he's friendly but very lazy",
+  "tony": "This is my cat Tony, he's a bit of a freak",
+  "bookshelf": `Here's my bookshelf and... oh some of my published works! Here's a <a href="https://www.uvic.ca/humanities/philosophy/assets/docs/sophia/sophia-xvi-manuscript.pdf" target="_blank">student journal</a> I wrote a philosophical essay for. And over here is a copy of a <a href="https://martlet.ca/a-brief-taxonomy-of-why-people-raise-their-hands-in-class/" target="_blank">humour piece</a> I wrote for my university paper. It's missing a bullet point, not sure why. Hopefully I'll publish more to add to my collection!`,
+  "kitchen": `I spend a lot of time in the kitchen, it's definitely one of my happy places. Here's one of my favourite <a href="https://www.onceuponachef.com/recipes/autumn-carrot-and-sweet-potato-soup.html" target="_blank">recipes</a>! I'm currently working on project to automate combining recipes, will add more on that soon!`,
+  "ottoman": `Welcome to my interactive 2.5D portfolio! It's a simple static site I'll update to highlight things I'm working on and show a bit of my personality. If you'd like to see more of the code, please click <a href="https://github.com/f1nn3g4n/portfolio" target="_blank">here</a>!`,
+  "plant": `I love plants, although I definitely don't have a green thumb. I have a few plants in my room, but I'm not sure what they are. I think this one is a <a href="https://www.thespruce.com/grow-and-care-for-a-ponytail-palm-1902747" target="_blank">ponytail palm</a>.`,
+  "computer": `Hey, this is my workstation! I spend a lot of time here, working on projects and playing games. I'm currently working on a Flutter chess game! Check out more of my projects <a href="https://github.com/f1nn3g4n">here</a>!`,
 }

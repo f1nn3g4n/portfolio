@@ -201,11 +201,11 @@
                  "type":"",
                  "visible":true,
                  "width":90.5,
-                 "x":59,
-                 "y":307
+                 "x":52.5,
+                 "y":310.5
                 }, 
                 {
-                 "height":28.5,
+                 "height":24.5,
                  "id":5,
                  "name":"",
                  "rotation":0,
@@ -213,7 +213,7 @@
                  "visible":true,
                  "width":36,
                  "x":139.5,
-                 "y":324
+                 "y":328
                 }, 
                 {
                  "height":27.5,
@@ -293,18 +293,18 @@
                  "y":59.5
                 }, 
                 {
-                 "height":37.5,
+                 "height":34.5,
                  "id":13,
                  "name":"",
                  "rotation":0,
                  "type":"",
                  "visible":true,
-                 "width":18,
-                 "x":286,
+                 "width":15.5,
+                 "x":288.5,
                  "y":110
                 }, 
                 {
-                 "height":30,
+                 "height":27,
                  "id":14,
                  "name":"plant",
                  "rotation":0,
@@ -315,7 +315,7 @@
                  "y":148.5
                 }, 
                 {
-                 "height":32.5,
+                 "height":29.5,
                  "id":15,
                  "name":"plant",
                  "rotation":0,
@@ -326,13 +326,13 @@
                  "y":146.5
                 }, 
                 {
-                 "height":32.5,
+                 "height":29.5,
                  "id":16,
                  "name":"",
                  "rotation":0,
                  "type":"",
                  "visible":true,
-                 "width":23.5,
+                 "width":22,
                  "x":139,
                  "y":114.5
                 }, 
@@ -348,14 +348,14 @@
                  "y":88.5
                 }, 
                 {
-                 "height":35,
+                 "height":29,
                  "id":18,
                  "name":"computer",
                  "rotation":0,
                  "type":"",
                  "visible":true,
-                 "width":54.5,
-                 "x":349.5,
+                 "width":55,
+                 "x":349,
                  "y":190
                 }, 
                 {
@@ -365,51 +365,51 @@
                  "rotation":0,
                  "type":"",
                  "visible":true,
-                 "width":18,
+                 "width":16.5,
                  "x":367.5,
                  "y":215.5
                 }, 
                 {
-                 "height":41.5,
+                 "height":40,
                  "id":20,
                  "name":"",
                  "rotation":0,
                  "type":"",
                  "visible":true,
-                 "width":35.5,
-                 "x":270.5,
+                 "width":30,
+                 "x":273.5,
                  "y":199
                 }, 
                 {
-                 "height":36.5,
+                 "height":34,
                  "id":21,
                  "name":"ottoman",
                  "rotation":0,
                  "type":"",
                  "visible":true,
-                 "width":66.5,
-                 "x":191,
-                 "y":201.5
+                 "width":61,
+                 "x":193.5,
+                 "y":204
                 }, 
                 {
-                 "height":27.5,
+                 "height":25,
                  "id":22,
                  "name":"",
                  "rotation":0,
                  "type":"",
                  "visible":true,
-                 "width":46.5,
+                 "width":45.5,
                  "x":193.5,
                  "y":162.5
                 }, 
                 {
-                 "height":54.5,
+                 "height":52,
                  "id":23,
                  "name":"bookshelf",
                  "rotation":0,
                  "type":"",
                  "visible":true,
-                 "width":70.5,
+                 "width":68.5,
                  "x":75,
                  "y":122.5
                 }, 
@@ -425,7 +425,7 @@
                  "y":205.5
                 }, 
                 {
-                 "height":103.5,
+                 "height":95.5,
                  "id":25,
                  "name":"",
                  "rotation":0,
@@ -433,21 +433,21 @@
                  "visible":true,
                  "width":22,
                  "x":59.5,
-                 "y":187
+                 "y":191.5
                 }, 
                 {
-                 "height":88,
+                 "height":86.5,
                  "id":26,
                  "name":"kitchen",
                  "rotation":0,
                  "type":"",
                  "visible":true,
-                 "width":18,
+                 "width":17,
                  "x":128,
                  "y":201
                 }, 
                 {
-                 "height":28.5,
+                 "height":26.5,
                  "id":27,
                  "name":"",
                  "rotation":0,
@@ -467,19 +467,7 @@
          "draworder":"topdown",
          "id":6,
          "name":"spawns",
-         "objects":[
-                {
-                 "height":0,
-                 "id":28,
-                 "name":"player",
-                 "point":true,
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":0,
-                 "x":222.5,
-                 "y":325
-                }, 
+         "objects":[ 
                 {
                  "height":0,
                  "id":29,
@@ -503,7 +491,20 @@
                  "width":0,
                  "x":268,
                  "y":173.5
-                }],
+                },
+                {
+                  "height":0,
+                  "id":28,
+                  "name":"player",
+                  "point":true,
+                  "rotation":0,
+                  "type":"",
+                  "visible":true,
+                  "width":0,
+                  "x":222.5,
+                  "y":325
+                 }
+               ],
          "opacity":1,
          "type":"objectgroup",
          "visible":true,

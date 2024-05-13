@@ -1,10 +1,9 @@
 import { moveToLocation, stopAnim } from "../../actions/movement";
-import { catConfig } from "../../characters/cat/cat.config";
-import { playerConfig } from "../../characters/player/player.config";
+import { tedConfig, tonyConfig } from "../../characters/cat";
+import { playerConfig } from "../../characters/player";
 import { scaleFactor } from "../../constants/scaleFactor";
 import { k } from "../../kaboomConfig";
-import { displayDialogue, setCamScale, spawn } from "../../utils";
-import { DIALOGUE } from "./lobby.constants";
+import { playerDialogue, setCamScale, spawn } from "../../utils";
 
 export const lobby = async () => {
   const mapData = await (await fetch('./lobby.json')).json();
@@ -17,12 +16,9 @@ export const lobby = async () => {
     k.scale(scaleFactor)
   ]);
 
-  console.log(mapData);
-  console.log(layers);
-
   const player = k.make(playerConfig());
-  const ted = k.make(catConfig());
-  const tony = k.make(catConfig());
+  const ted = k.make(tedConfig());
+  const tony = k.make(tonyConfig());
 
   for (const layer of layers) {
     if (layer.name === 'boundaries') {
@@ -34,12 +30,8 @@ export const lobby = async () => {
           obj.name,
         ]);
 
-        if (obj.name) {
-          player.onCollide(obj.name, () => {
-            player.isInDialogue = true;
-            displayDialogue('whatsup', () => player.isInDialogue = false);
-          })
-        }
+        if (obj.name)
+          k.onClick(obj.name, () => playerDialogue(obj.name, player));
       }
     } else if (layer.name === "spawns") {
       for (const obj of layer.objects) {
@@ -65,13 +57,13 @@ export const lobby = async () => {
   })
 
   k.onMouseDown((m) => {
-    if (m !== "left" || player.isInDialogue) return;
+      if (m !== "left" || player.isInDialogue) return;
 
-  const worldMousePos = k.toWorld(k.mousePos());
+    const worldMousePos = k.toWorld(k.mousePos());
 
-  const mouseAngle = player.pos.angle(worldMousePos);
-  moveToLocation(player, mouseAngle, worldMousePos);
-});
+    const mouseAngle = player.pos.angle(worldMousePos);
+    moveToLocation(player, mouseAngle, worldMousePos);
+  });
   k.onMouseRelease((_m) => stopAnim(player));
 
   //make cat wander around
@@ -88,8 +80,7 @@ export const lobby = async () => {
     }, 3);
   });
 
-  player.onCollide("cat", () => {
-    player.isInDialogue = true;
-    displayDialogue(DIALOGUE["cat"], () => player.isInDialogue = false);
-  })
+  player.onCollide("ted", () => playerDialogue('ted', player));
+  player.onCollide("tony", () => playerDialogue('tony', player));
 }
+
