@@ -19,6 +19,16 @@ body {
   display: none;
 }
 
+#start {
+  position: absolute;
+  color: white;
+  display: flex;
+  text-align: center;
+  top: 45%;
+  width: 100%;
+  justify-content: center;
+}
+
 #textbox, #note {
   position: absolute;
   left: 10%;
@@ -65,7 +75,6 @@ body {
   display: none;
   flex-direction: column;
   width: 15rem;
-  height: 2.5rem;
   font-size: 1rem;
   min-height: 0;
 }
