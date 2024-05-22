@@ -3,30 +3,28 @@ import { tedConfig, tonyConfig } from "../../characters/cat";
 import { playerConfig } from "../../characters/player";
 import { scaleFactor } from "../../constants/scaleFactor";
 import { k } from "../../kaboomConfig";
-import { playerDialogue, setCamScale, spawn } from "../../utils";
+import { enableWASD, playerDialogue, setCamScale, spawn } from "../../utils";
 
 export const lobby = async () => {
-  const mapData = await (await fetch('./lobby.json')).json();
-  k.loadSprite('map', './lobby.png');
+  const mapData = await (await fetch("./lobby.json")).json();
+  k.loadSprite("map", "./lobby.png");
   const layers = mapData.layers;
 
-  const map = k.add([
-    k.sprite('map'),
-    k.pos(0),
-    k.scale(scaleFactor)
-  ]);
+  const map = k.add([k.sprite("map"), k.pos(0), k.scale(scaleFactor)]);
 
   const player = k.make(playerConfig());
   const ted = k.make(tedConfig());
   const tony = k.make(tonyConfig());
 
+  enableWASD(k, player);
+
   for (const layer of layers) {
-    if (layer.name === 'boundaries') {
+    if (layer.name === "boundaries") {
       for (const obj of layer.objects) {
         map.add([
-          k.area({shape: new k.Rect(k.vec2(0), obj.width, obj.height)}),
+          k.area({ shape: new k.Rect(k.vec2(0), obj.width, obj.height) }),
           k.pos(obj.x, obj.y),
-          k.body({isStatic: true}),
+          k.body({ isStatic: true }),
           obj.name,
         ]);
 
@@ -54,10 +52,10 @@ export const lobby = async () => {
 
   k.onUpdate(() => {
     k.camPos(player.pos.x, player.pos.y + 100);
-  })
+  });
 
   k.onMouseDown((m) => {
-      if (m !== "left" || player.isInDialogue) return;
+    if (m !== "left" || player.isInDialogue) return;
 
     const worldMousePos = k.toWorld(k.mousePos());
 
@@ -69,7 +67,7 @@ export const lobby = async () => {
   //make cat wander around
   k.loop(5, () => {
     const angle = k.vec2(k.rand(-1, 1), k.rand(-1, 1));
-    const direction = angle.angle(k.vec2(0,0));
+    const direction = angle.angle(k.vec2(0, 0));
 
     const intervalRef = setInterval(() => {
       moveToLocation(tony, direction);
@@ -80,7 +78,6 @@ export const lobby = async () => {
     }, 3);
   });
 
-  player.onCollide("ted", () => playerDialogue('ted', player));
-  player.onCollide("tony", () => playerDialogue('tony', player));
-}
-
+  player.onCollide("ted", () => playerDialogue("ted", player));
+  player.onCollide("tony", () => playerDialogue("tony", player));
+};
