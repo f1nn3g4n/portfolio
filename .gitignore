@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# GitHub pages needs a different config that doesn't work locally
+vite.config.js
