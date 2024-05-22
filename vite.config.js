@@ -1,14 +1,9 @@
 import { defineConfig } from "vite";
-import { config } from "./vite.config.local.js";
 
-export default defineConfig(
-  config
-    ? config
-    : {
-        base: "/portfolio",
-        build: {
-          // bug w kaboom w esbuild
-          minify: "terser",
-        },
-      },
-);
+export default defineConfig({
+  base: "/portfolio",
+  build: {
+    // bug w kaboom w esbuild
+    minify: "terser",
+  },
+});
