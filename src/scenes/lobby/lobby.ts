@@ -1,4 +1,8 @@
-import { moveToLocation, stopAnim } from "../../actions/movement";
+import {
+  moveInDirection,
+  moveToLocation,
+  stopAnim,
+} from "../../actions/movement";
 import { tedConfig, tonyConfig } from "../../characters/cat";
 import { playerConfig } from "../../characters/player";
 import { scaleFactor } from "../../constants/scaleFactor";
@@ -37,6 +41,10 @@ export const lobby = async () => {
           spawn(k, obj, map, player);
         } else if (obj.name === "tony") {
           spawn(k, obj, map, tony);
+          // make him wander around
+          k.loop(10, () => {
+            moveInDirection(tony, k.rand(-50, 50), k.rand(-50, 50));
+          });
         } else if (obj.name === "ted") {
           spawn(k, obj, map, ted);
         }
@@ -58,25 +66,9 @@ export const lobby = async () => {
     if (m !== "left" || player.isInDialogue) return;
 
     const worldMousePos = k.toWorld(k.mousePos());
-
-    const mouseAngle = player.pos.angle(worldMousePos);
-    moveToLocation(player, mouseAngle, worldMousePos);
+    moveToLocation(player, worldMousePos);
   });
   k.onMouseRelease((_m) => stopAnim(player));
-
-  //make cat wander around
-  k.loop(5, () => {
-    const angle = k.vec2(k.rand(-1, 1), k.rand(-1, 1));
-    const direction = angle.angle(k.vec2(0, 0));
-
-    const intervalRef = setInterval(() => {
-      moveToLocation(tony, direction);
-      if (tony.getCollisions().length) {
-        stopAnim(tony);
-        clearInterval(intervalRef);
-      }
-    }, 3);
-  });
 
   player.onCollide("ted", () => playerDialogue("ted", player));
   player.onCollide("tony", () => playerDialogue("tony", player));
